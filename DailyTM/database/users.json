@@ -1,0 +1,14 @@
+[
+  {
+    "id": "f98196ab-1fcf-4bbd-88dd-a01615ec1fbe",
+    "fullName": "Mahesh Patel",
+    "email": "mp.6145054@gmail.com",
+    "username": "Mahesh",
+    "passwordHash": "$2a$12$0.emoqSMrO77iGXBNwSXGe8ZkVB1sixIxujkzeYxtxPciBPW6joOS",
+    "role": "user",
+    "disabled": false,
+    "avatar": "",
+    "createdAt": "2026-06-05T05:59:38.959Z",
+    "updatedAt": "2026-06-05T05:59:38.959Z"
+  }
+]

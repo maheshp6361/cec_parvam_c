@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | DailyTM</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="/js/auth.js"></script>
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-panel">
+      <div class="brand"><span class="brand-mark"><i data-lucide="calendar-check"></i></span> DailyTM</div>
+      <div>
+        <h1>Build your command center.</h1>
+        <p>Capture tasks, sort priorities, watch progress, and stay ahead of overdue work from any screen size.</p>
+      </div>
+    </section>
+    <section class="auth-main">
+      <form class="auth-card" id="registerForm">
+        <div class="section-title">
+          <h2>Create account</h2>
+          <p>Use a unique username and a strong password.</p>
+        </div>
+        <div class="form-grid" style="margin-top:1.2rem">
+          <div class="field full">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" name="fullName" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="username">Username</label>
+            <input id="username" name="username" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" minlength="8" autocomplete="new-password" required>
+          </div>
+          <div class="field">
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" minlength="8" autocomplete="new-password" required>
+          </div>
+          <button class="btn primary full" type="submit"><i data-lucide="user-plus"></i> Register</button>
+          <p class="muted full">Already have an account? <a href="/pages/login.html"><strong>Login</strong></a></p>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

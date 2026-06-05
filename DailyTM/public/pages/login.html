@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | DailyTM</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="/js/auth.js"></script>
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-panel">
+      <div class="brand"><span class="brand-mark"><i data-lucide="check-check"></i></span> DailyTM</div>
+      <div>
+        <h1>Organize the workday.</h1>
+        <p>A focused task workspace for planning, reminders, progress charts, and the daily decisions that keep projects moving.</p>
+      </div>
+    </section>
+    <section class="auth-main">
+      <form class="auth-card" id="loginForm">
+        <div class="section-title">
+          <h2>Welcome back</h2>
+          <p>Sign in to continue to your dashboard.</p>
+        </div>
+        <div class="grid" style="margin-top:1.2rem">
+          <div class="field">
+            <label for="username">Username or Email</label>
+            <input id="username" name="username" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required>
+          </div>
+          <label style="display:flex;align-items:center;gap:.55rem"><input style="width:auto;min-height:auto" type="checkbox" name="remember"> Remember me</label>
+          <button class="btn primary" type="submit"><i data-lucide="log-in"></i> Login</button>
+          <p class="muted">New here? <a href="/pages/register.html"><strong>Create an account</strong></a></p>
+          <p class="muted"><a href="/pages/admin.html">Admin login</a></p>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

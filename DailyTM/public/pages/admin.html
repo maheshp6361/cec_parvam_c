@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | DailyTM</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="/js/auth.js"></script>
+  <script defer src="/js/admin.js"></script>
+</head>
+<body>
+  <main id="adminLoginView" class="auth-shell">
+    <section class="auth-panel">
+      <div class="brand"><span class="brand-mark"><i data-lucide="shield-check"></i></span> DailyTM Admin</div>
+      <div>
+        <h1>System operations.</h1>
+        <p>Review users, tasks, statistics, and platform activity from a protected workspace.</p>
+      </div>
+    </section>
+    <section class="auth-main">
+      <form class="auth-card" id="adminLoginForm">
+        <h2>Admin login</h2>
+        <p class="muted">Admin registration is intentionally not public.</p>
+        <div class="grid" style="margin-top:1rem">
+          <div class="field"><label>Username or Email</label><input name="username" required></div>
+          <div class="field"><label>Password</label><input name="password" type="password" required></div>
+          <button class="btn primary" type="submit"><i data-lucide="shield"></i> Login</button>
+          <a class="muted" href="/pages/login.html">User login</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <div id="adminDashboardView" class="page" hidden>
+    <aside class="sidebar">
+      <a class="brand" href="/pages/admin.html"><span class="brand-mark"><i data-lucide="shield-check"></i></span> Admin</a>
+      <nav class="nav">
+        <a class="active" href="/pages/admin.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+        <button type="button" data-theme-toggle><i data-lucide="moon"></i> Theme</button>
+        <button type="button" data-logout><i data-lucide="log-out"></i> Logout</button>
+      </nav>
+    </aside>
+    <main class="content">
+      <header class="topbar">
+        <button class="btn icon-btn mobile-menu" data-mobile-menu title="Menu"><i data-lucide="menu"></i></button>
+        <div>
+          <h1>Admin dashboard</h1>
+          <p>System overview and controls.</p>
+        </div>
+      </header>
+      <div id="adminStats" class="grid cards-5"></div>
+      <section class="panel" style="margin-top:1rem">
+        <div class="topbar">
+          <h2>Users</h2>
+          <input id="userSearch" placeholder="Search users" style="max-width:22rem">
+        </div>
+        <div style="overflow:auto">
+          <table><thead><tr><th>Name</th><th>Email</th><th>Username</th><th>Status</th><th>Actions</th></tr></thead><tbody id="usersTable"></tbody></table>
+        </div>
+      </section>
+      <section class="panel" style="margin-top:1rem">
+        <h2>All Tasks</h2>
+        <div style="overflow:auto">
+          <table><thead><tr><th>Title</th><th>Priority</th><th>Due</th><th>Status</th></tr></thead><tbody id="allTasksTable"></tbody></table>
+        </div>
+      </section>
+      <section class="panel" style="margin-top:1rem">
+        <h2>Activity Logs</h2>
+        <div style="overflow:auto">
+          <table><thead><tr><th>Time</th><th>Actor</th><th>Action</th><th>Details</th></tr></thead><tbody id="logsTable"></tbody></table>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

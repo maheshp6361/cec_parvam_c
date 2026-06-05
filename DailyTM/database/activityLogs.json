@@ -1,0 +1,18 @@
+[
+  {
+    "id": "0260a07c-3a87-45c8-af0e-117e3e25a3dd",
+    "actorId": "f98196ab-1fcf-4bbd-88dd-a01615ec1fbe",
+    "actorRole": "user",
+    "action": "Login",
+    "details": "User signed in.",
+    "createdAt": "2026-06-05T06:02:19.866Z"
+  },
+  {
+    "id": "653a991e-fa2d-4d3a-a680-cc4f41f03e81",
+    "actorId": "f98196ab-1fcf-4bbd-88dd-a01615ec1fbe",
+    "actorRole": "user",
+    "action": "Registration",
+    "details": "New user account created.",
+    "createdAt": "2026-06-05T05:59:38.965Z"
+  }
+]

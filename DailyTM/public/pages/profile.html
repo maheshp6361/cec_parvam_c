@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile | DailyTM</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="/js/auth.js"></script>
+  <script defer src="/js/profile.js"></script>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <a class="brand" href="/pages/dashboard.html"><span class="brand-mark"><i data-lucide="check-check"></i></span> DailyTM</a>
+      <nav class="nav">
+        <a href="/pages/dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+        <a class="active" href="/pages/profile.html"><i data-lucide="user-round"></i> Profile</a>
+        <button type="button" data-theme-toggle><i data-lucide="moon"></i> Theme</button>
+        <button type="button" data-logout><i data-lucide="log-out"></i> Logout</button>
+      </nav>
+    </aside>
+    <main class="content">
+      <header class="topbar">
+        <button class="btn icon-btn mobile-menu" data-mobile-menu title="Menu"><i data-lucide="menu"></i></button>
+        <div>
+          <h1>Profile</h1>
+          <p>Manage account details and security.</p>
+        </div>
+      </header>
+      <div class="grid cards-3">
+        <section class="panel">
+          <img id="avatarPreview" class="profile-avatar" src="/assets/avatar.svg" alt="Profile avatar">
+          <h2 id="profileName">Profile</h2>
+          <form id="avatarForm" class="grid">
+            <div class="field"><label>Profile Picture</label><input name="avatar" type="file" accept="image/*" required></div>
+            <button class="btn" type="submit"><i data-lucide="upload"></i> Upload</button>
+          </form>
+        </section>
+        <form id="profileForm" class="panel grid">
+          <h2>Edit Profile</h2>
+          <div class="field"><label>Full Name</label><input name="fullName" required></div>
+          <div class="field"><label>Email</label><input name="email" type="email" required></div>
+          <div class="field"><label>Username</label><input name="username" required></div>
+          <button class="btn primary" type="submit">Save Changes</button>
+        </form>
+        <form id="passwordForm" class="panel grid">
+          <h2>Change Password</h2>
+          <div class="field"><label>Current Password</label><input name="currentPassword" type="password" required></div>
+          <div class="field"><label>New Password</label><input name="newPassword" type="password" minlength="8" required></div>
+          <button class="btn primary" type="submit">Update Password</button>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

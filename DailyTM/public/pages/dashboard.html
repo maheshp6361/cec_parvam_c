@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | DailyTM</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="/js/auth.js"></script>
+  <script defer src="/js/dashboard.js"></script>
+  <script defer src="/js/tasks.js"></script>
+  <script defer src="/js/reminders.js"></script>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <a class="brand" href="/pages/dashboard.html"><span class="brand-mark"><i data-lucide="check-check"></i></span> DailyTM</a>
+      <nav class="nav">
+        <a class="active" href="/pages/dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+        <a href="#tasks"><i data-lucide="list-checks"></i> Tasks</a>
+        <a href="/pages/profile.html"><i data-lucide="user-round"></i> Profile</a>
+        <button type="button" data-theme-toggle><i data-lucide="moon"></i> Theme</button>
+        <button type="button" data-logout><i data-lucide="log-out"></i> Logout</button>
+      </nav>
+    </aside>
+    <main class="content">
+      <header class="topbar">
+        <button class="btn icon-btn mobile-menu" data-mobile-menu title="Menu"><i data-lucide="menu"></i></button>
+        <div>
+          <h1>Daily dashboard</h1>
+          <p>Welcome, <span data-user-name>there</span>.</p>
+        </div>
+        <div class="toolbar">
+          <button class="btn" id="enableNotifications"><i data-lucide="bell-ring"></i> Enable alerts</button>
+          <button class="btn icon-btn" id="notificationBell" title="Notifications"><i data-lucide="bell"></i><span id="notificationCount">0</span></button>
+          <button class="btn primary" id="newTaskBtn"><i data-lucide="plus"></i> New Task</button>
+        </div>
+      </header>
+
+      <section id="notificationPanel" class="modal-backdrop">
+        <div class="modal">
+          <div class="modal-head">
+            <h2>Notifications</h2>
+            <button class="btn icon-btn" id="closeNotifications" title="Close"><i data-lucide="x"></i></button>
+          </div>
+          <div id="notificationList" class="notification-list"></div>
+        </div>
+      </section>
+
+      <section class="dashboard-layout">
+        <div id="statsGrid" class="grid cards-5"></div>
+        <div class="chart-grid">
+          <section class="panel chart-box"><h2>Task Status</h2><canvas id="statusChart"></canvas></section>
+          <section class="panel chart-box"><h2>Priority Distribution</h2><canvas id="priorityChart"></canvas></section>
+          <section class="panel chart-box wide"><h2>Weekly Progress</h2><canvas id="weeklyChart"></canvas></section>
+        </div>
+      </section>
+
+      <section id="tasks" class="grid" style="margin-top:1rem">
+        <div class="panel">
+          <div class="topbar">
+            <div class="section-title">
+              <h2>Task board</h2>
+              <p>Search, filter, sort, import, and export your work.</p>
+            </div>
+            <div class="toolbar">
+              <button class="btn" id="exportJson"><i data-lucide="download"></i> JSON</button>
+              <button class="btn" id="exportCsv"><i data-lucide="file-spreadsheet"></i> CSV</button>
+              <label class="btn"><i data-lucide="upload"></i> Import <input id="importTasks" type="file" accept="application/json" hidden></label>
+            </div>
+          </div>
+          <div class="filters">
+            <input id="searchInput" placeholder="Search tasks">
+            <select id="filterPriority"><option value="">All priorities</option><option>Low</option><option>Medium</option><option>High</option></select>
+            <select id="filterStatus"><option value="">All status</option><option value="pending">Pending</option><option value="completed">Completed</option></select>
+            <select id="filterCategory"><option value="">All categories</option></select>
+            <input id="filterDueDate" type="date">
+            <select id="sortTasks"><option value="newest">Newest</option><option value="oldest">Oldest</option><option value="priority">Priority</option><option value="dueDate">Due Date</option><option value="alpha">Alphabetical</option></select>
+          </div>
+        </div>
+        <div id="taskList" class="task-grid"></div>
+        <div class="toolbar" style="justify-content:center">
+          <button class="btn" id="prevPage">Previous</button>
+          <span id="pageInfo" class="muted">Page 1 of 1</span>
+          <button class="btn" id="nextPage">Next</button>
+        </div>
+        <section class="completed-section panel">
+          <h2>Completed Tasks</h2>
+          <div id="completedList" class="task-grid"></div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <section id="taskModal" class="modal-backdrop">
+    <form class="modal" id="taskForm">
+      <div class="modal-head">
+        <h2 id="modalTitle">Create task</h2>
+        <button type="button" class="btn icon-btn" id="closeTaskModal" title="Close"><i data-lucide="x"></i></button>
+      </div>
+      <div class="form-grid">
+        <div class="field full"><label>Title</label><input name="title" required></div>
+        <div class="field full"><label>Description</label><textarea name="description"></textarea></div>
+        <div class="field"><label>Due Date</label><input name="dueDate" type="date" required></div>
+        <div class="field"><label>Due Time</label><input name="dueTime" type="time" required></div>
+        <div class="field"><label>Priority</label><select name="priority" required><option>Low</option><option selected>Medium</option><option>High</option></select></div>
+        <div class="field"><label>Category</label><input name="category" placeholder="Work"></div>
+        <div class="field full"><label>Tags</label><input name="tags" placeholder="design, client, sprint"></div>
+        <div class="field full"><label>Reminder Time</label><input name="reminderTime" type="datetime-local"></div>
+      </div>
+      <div class="toolbar" style="justify-content:flex-end;margin-top:1rem">
+        <button type="button" class="btn" id="cancelTask">Cancel</button>
+        <button class="btn primary" type="submit">Save Task</button>
+      </div>
+    </form>
+  </section>
+</body>
+</html>

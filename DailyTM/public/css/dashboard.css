@@ -1,0 +1,70 @@
+.dashboard-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.chart-grid .wide {
+  grid-column: 1 / -1;
+}
+
+.chart-box {
+  height: 20rem;
+}
+
+.chart-box canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, minmax(8rem, 1fr));
+  gap: 0.7rem;
+}
+
+.completed-section {
+  margin-top: 1rem;
+}
+
+.notification-list {
+  display: grid;
+  gap: 0.55rem;
+  max-height: 20rem;
+  overflow: auto;
+}
+
+.notice {
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+}
+
+.profile-avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--surface-strong);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 1000px) {
+  .filters,
+  .chart-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .filters,
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
